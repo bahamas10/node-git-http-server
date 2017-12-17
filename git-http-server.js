@@ -86,7 +86,7 @@ function onrequest(req, res) {
     return;
   }
 
-  var repo = u.pathname.split('/')[1];
+  var repo = /\/(.*)\/(HEAD|info\/refs|git-[^/]+|objects\/(info\/[^/]+|[0-9a-f]{2}\/[0-9a-f]{38}|pack\/pack-[0-9a-f]{40}\.(pack|idx)))$/.exec(u.pathname)[1];
 
   req.pipe(backend(req.url, function(err, service) {
     if (err) {
