@@ -9,7 +9,7 @@
 
 var http = require('http');
 var spawn = require('child_process').spawn;
-var path = require('path');
+var path = require('path').posix;
 var url = require('url');
 
 var accesslog = require('access-log');
